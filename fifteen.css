@@ -1,0 +1,40 @@
+@import "../../Commons/commons.css";
+
+.container {
+    /*width: 300px;*/
+    /*height: 300px;*/
+    border: 2px solid blue;
+    border-radius: 3px;
+    background-color: #ccffff;
+}
+
+.sq {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 98px;
+    user-select: none;
+    transition: 0.5s;
+    background-color: #1c680c;
+}
+
+.full {
+    border: 1px solid gray;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.placed {
+    background-color: #2a9c0f;
+}
+
+.nonplaced {
+    background-color: white;
+}
+
+.empty {
+    background-color: transparent;
+}
