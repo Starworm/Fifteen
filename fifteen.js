@@ -1,5 +1,5 @@
 // initial constants - size of the field (always square!)
-let size = 4;
+let size = 2;
 
 let maxNumber = size*size-1;
 
@@ -7,7 +7,10 @@ let maxNumber = size*size-1;
 let cont = document.createElement("div");
 cont.style.width = size*100+"px";
 cont.style.height = size*100+"px";
-cont.classList.add("centered", "container");
+cont.classList.add("centered", "container", "paper");
+
+let fin = document.createElement("div");
+fin.classList.add("winscreen");
 
 // arrays of tiles from 1st to 15th
 let square = [];
@@ -45,6 +48,10 @@ square.forEach((e, index) => {
             swapElem(this);
             block = true;
             checked(e);
+            if(isGameOver(square)) {
+                fin.textContent = "You won!";
+                document.body.append(fin);
+            }
         }
     });
 
@@ -109,11 +116,25 @@ function checked(e) {
     if(e.i == x && e.j == y) {
         e.classList.remove("nonplaced");
         e.classList.add("placed");
+        return true;
     }
     else {
         e.classList.remove("placed");
         e.classList.add("nonplaced");
+        return false;
     }
+}
+
+function isGameOver(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if(checked(arr[i])) {
+            count++;
+            console.log("No");
+        }
+    }
+    if(count === maxNumber)
+        return true;
 }
 
 // adding container to body - starting the page
